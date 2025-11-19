@@ -1,11 +1,6 @@
 <ul>
-  @for (ingredient of ingredients; track ingredient.nombre){
-
-  <li>
-    <span>{{ ingredient.nombre }}</span>
-    @if (ingredient.cantidad) {
-    <span> - {{ ingredient.cantidad }} {{ ingredient.unidad }}</span>
-    }
-  </li>
+  @for(ing of ingredients; track ing.nombre) {
+    <li>{{ ing.nombre }} - {{ ing.cantidad }} {{ ing.unidad }}</li>
   }
 </ul>
+

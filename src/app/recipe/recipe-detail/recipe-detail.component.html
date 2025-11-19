@@ -1,20 +1,59 @@
-<div class="recipe-detail">
-  <h2>{{ recipe.nombre }}</h2>
+<div class="container-fluid py-5" style="background-color: #f8bcd0; min-height: 100vh;">
 
-  <img class="recipe-detail-img"
-       [src]="recipe.imagen"
-       alt="{{ recipe.imagen }}" />
+  <div class="mx-auto p-4 rounded shadow bg-white" style="max-width: 1100px;">
 
-  <p><strong>Porciones:</strong> {{ recipe.porciones }}</p>
-  <p><strong>Tiempo:</strong> {{ recipe.tiempo_minutos }} min</p>
+    <h2 class="text-center mb-4">Recetas uniandes</h2>
 
-  <h3>Ingredientes</h3>
-  <app-ingredient-list [ingredients]="recipe.ingredientes"></app-ingredient-list>
+    <div class="row">
 
-  <h3>Pasos</h3>
-  <ol>
-    @for(step of recipe.pasos; track step){
-    <li>{{ step }}</li>
-    }
-  </ol>
+      <div class="col-md-5 text-center">
+        <img 
+          [src]="recipe.imagen" 
+          alt="{{ recipe.nombre }}"
+          class="rounded shadow"
+          style="width: 100%; max-width: 420px; height: auto;"
+        />
+
+        <button class="btn btn-primary mt-4" routerLink="/recipe">
+          Regresar
+        </button>
+      </div>
+
+      <div class="col-md-7">
+
+        <h3 class="mb-3">{{ recipe.nombre }}</h3>
+
+        <div class="row mb-3">
+          <div class="col-6">
+            <p><strong>Porciones:</strong> {{ recipe.porciones }}</p>
+          </div>
+          <div class="col-6">
+            <p><strong>Tiempo:</strong> {{ recipe.tiempo_minutos }} min</p>
+          </div>
+          <div class="col-6">
+            <p><strong>Dificultad:</strong> {{ recipe.dificultad }}</p>
+          </div>
+          <div class="col-6">
+            <p><strong>Tipo:</strong> {{ recipe.tipo }}</p>
+          </div>
+        </div>
+
+        <hr />
+
+        <h4>Ingredientes</h4>
+        <app-ingredient-list [ingredients]="recipe.ingredientes"></app-ingredient-list>
+
+        <hr />
+
+        <h4>Pasos</h4>
+        <ol>
+          @for (step of recipe.pasos; track step) {
+            <li>{{ step }}</li>
+          }
+        </ol>
+
+      </div>
+    </div>
+
+  </div>
 </div>
